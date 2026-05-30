@@ -19,18 +19,18 @@ type CardProps = {
 };
 
 const sizeConfig: Record<Size, string> = {
-  sm: "w-64",
-  md: "w-112",
-  lg: "w-176",
+  sm: "flex-1",
+  md: "flex-[1.5]",
+  lg: "flex-[2]",
   full: "w-full",
 };
 
 const bgColorConfig: Record<
   Background,
-  { bg: string; text: string; subText: string, comparisonBg: string }
+  { bg: string; text: string; subText: string; comparisonBg: string }
 > = {
   light: {
-    bg: "bg-emerald-50/20",
+    bg: "bg-[#f5fef9]",
     text: "text-gray-900",
     subText: "text-gray-400",
     comparisonBg: "bg-black/3",
@@ -43,7 +43,15 @@ const bgColorConfig: Record<
   },
 };
 
-const trendConfig: Record<Trend, { bgIcon: string; color: Record<Background, string>; iconColor: Record<Background, string>; arrow: React.ReactNode }> = {
+const trendConfig: Record<
+  Trend,
+  {
+    bgIcon: string;
+    color: Record<Background, string>;
+    iconColor: Record<Background, string>;
+    arrow: React.ReactNode;
+  }
+> = {
   up: {
     bgIcon: "bg-emerald-100",
     color: { light: "text-emerald-800", dark: "text-emerald-300" },
@@ -86,7 +94,9 @@ export default function Card({
     >
       {/* Row 1 */}
       <div className="flex items-center gap-3">
-        <div className={`w-9 h-9 rounded-full ${iconColorClass} ${bgIcon} flex items-center justify-center shrink-0`}>
+        <div
+          className={`w-9 h-9 rounded-full ${iconColorClass} ${bgIcon} flex items-center justify-center shrink-0`}
+        >
           {icon}
         </div>
         <p className={`text-sm font-medium ${text}`}>{title}</p>

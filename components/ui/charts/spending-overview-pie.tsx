@@ -7,31 +7,13 @@ import {
   Truck,
   ShoppingBag,
   FileText,
-  Music,
-  Zap,
-  Home,
-  Heart,
-  Coffee,
   Gamepad2,
   ChevronDown,
 } from "lucide-react";
 
-const iconList = [
-  Utensils,
-  Truck,
-  ShoppingBag,
-  FileText,
-  Music,
-  Zap,
-  Home,
-  Heart,
-  Coffee,
-  Gamepad2,
-];
-
 const data = [
   {
-    name: "Food & Drink",
+    name: "Food & Beverages",
     value: 1200000,
     color: "#002c22",
     icon: Utensils,
@@ -45,6 +27,7 @@ const data = [
     color: "#009966",
     icon: Gamepad2,
   },
+  { name: "Others", value: 150000, color: "#00bc7d", icon: ChevronDown },
 ];
 
 const formatRupiah = (value: number) =>
@@ -73,9 +56,9 @@ export default function SpendingOverview({ className = "" }: { className?: strin
   const total = data.reduce((sum, item) => sum + item.value, 0);
 
   return (
-    <div className={`bg-emerald-50/20 rounded-2xl p-5 pb-0 shadow-sm flex flex-col gap-2 ${className}`}>
-      <div className="flex items-center justify-between">
-        <h1 className="text-sm font-black">Spending Overview</h1>
+    <div className={`bg-[#f5fef9] rounded-2xl p-5 shadow-sm flex flex-col w-full ${className}`}>
+      <div className="flex items-center justify-between mb-5">
+        <h1 className="font-black">Spending Overview</h1>
         <div className="relative">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -108,7 +91,7 @@ export default function SpendingOverview({ className = "" }: { className?: strin
       </div>
 
       <div>
-        <p className="text-xs text-gray-400 font-medium">Total Spending</p>
+        <p className="text-sm text-gray-400 font-medium">Total Spending</p>
         <p className="text-xl font-black">{formatRupiah(total)}</p>
       </div>
 

@@ -31,11 +31,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen = true }) => {
   return (
     <aside
       className={`
-        fixed left-0 top-0 h-screen w-64 bg-emerald-50/20 shadow-sm p-5
+        fixed left-0 top-0 h-screen w-64 bg-[#f5fef9] p-5
         transform transition-transform duration-300 ease-in-out
         ${isOpen ? "translate-x-0" : "-translate-x-full"}
-        md:translate-x-0 md:static
+        md:sticky md:top-0 md:h-screen md:transform-none
         z-50
+        shadow-[1px_80px_3px_0_rgba(0,0,0,0.1)]
       `}
     >
       {/* Header / Logo */}
